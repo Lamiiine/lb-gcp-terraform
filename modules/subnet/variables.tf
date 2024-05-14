@@ -1,10 +1,12 @@
-variable "subnet_name" {
+variable "name" {
   description = "Name of the subnet"
 }
 
-variable "subnet_cidr" {
+variable "ip" {
+  type = string
   description = "CIDR block for the subnet"
 }
+
 variable "vpc_network" {
   description = "Name of the VPC network"
   type        = string

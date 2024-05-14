@@ -1,5 +1,5 @@
 variable "name" {
-  description = "The name of the network being created"
+  description = "The name of the network being createdd:"
   type        = string
 }
 variable "project_id" {
