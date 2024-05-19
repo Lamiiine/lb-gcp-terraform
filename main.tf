@@ -21,7 +21,6 @@ module "vpc" {
 }
 
 module "my_subnet" {
-
   source = "./modules/subnet"
   //description = "hello d"
   for_each = var.subnet_names
@@ -34,3 +33,19 @@ module "my_subnet" {
   # var.subnet_cidr = ["10.0.0.0/16", "10.1.0.0/16"]
   ip = "${each.value.ip}"
 } 
+
+module "nat_gateway" {
+  source  = "./modules/nat"
+  name    = "my-natnat-gateway"
+  network = module.vpc.name
+  region  = local.region
+}
+
+module "lb" {
+  source             = "./modules/lb"
+  name               = var.hc_name
+  check_interval_sec = var.check_interval_sec
+  port = var.port
+  ports = var.ports
+  network = module.vpc.name
+}

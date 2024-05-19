@@ -6,10 +6,17 @@ variable "vpc_name" {
   type    = string
   description = "your vpc :"
 }
-
+variable "name" {
+  type    = string
+  description = "your lb"
+}
+variable "network" {
+  type    = string
+  description = "your network"
+}
 variable "project_id" {
   description = "project ID: "
-  default = "playground-s-11-0c9d7186"
+  default = "playground-s-11-5779704a"
   type        = string
 }
 variable "description" {
@@ -36,6 +43,19 @@ variable "subnet_names" {
     }}
   
 }
-
-
-
+variable "check_interval_sec"{
+  type = number
+  description = "interval"
+}
+variable "hc_name" {
+  type    = string
+  description = "your hc"
+}
+variable "port"{
+  type = number
+  description = "port number"
+}
+variable "ports" {
+  type        = list(string)
+  description = "ports number"
+}
