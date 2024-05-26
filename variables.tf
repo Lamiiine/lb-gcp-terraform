@@ -3,20 +3,20 @@
   type        = string
 } */
 variable "vpc_name" {
-  type    = string
+  type        = string
   description = "your vpc :"
 }
 variable "name" {
-  type    = string
+  type        = string
   description = "your lb"
 }
 variable "network" {
-  type    = string
+  type        = string
   description = "your network"
 }
 variable "project_id" {
   description = "project ID: "
-  default = "playground-s-11-5779704a"
+  default     = "playground-s-11-ae03c273"
   type        = string
 }
 variable "description" {
@@ -37,22 +37,22 @@ variable "subnet_names" {
       name = "hr"
       ip   = "10.0.0.0/16"
     }
-     "sub2" = {
+    "sub2" = {
       name = "tech"
       ip   = "10.1.0.0/16"
-    }}
-  
+  } }
+
 }
-variable "check_interval_sec"{
-  type = number
+variable "check_interval_sec" {
+  type        = number
   description = "interval"
 }
 variable "hc_name" {
-  type    = string
+  type        = string
   description = "your hc"
 }
-variable "port"{
-  type = number
+variable "port" {
+  type        = number
   description = "port number"
 }
 variable "ports" {
