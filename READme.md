@@ -17,8 +17,8 @@ This repository contains a Python script to manage a Terraform-based load balanc
 
 1. Clone this repository:
     ```bash
-    git clone https://github.com/yourusername/terraform-loadbalancer-manager.git
-    cd terraform-loadbalancer-manager
+    git clone https://github.com/yourusername/lb-gcp-terraform.git
+    cd lb-gcp-terraform
     ```
 
 3. Ensure Terraform and Python are installed and accessible in your PATH.
