@@ -4,7 +4,27 @@ from utils import *
 class terraform_manager:
     def __init__(self, working_dir="."):
         self.tf = Terraform(working_dir=working_dir)
-        self.tf_vars ={}
+        self.vpc_name = validate_input("Enter your VPC name: ")
+        self.name = validate_input("Enter the name: ")
+        self.network = validate_input("Enter the network name: ")    
+        self.project_id = validate_input("Enter your GCP project ID: ")
+        self.description = validate_input("Enter description: ")
+        self.check_interval_sec = validate_integer_input("Enter interval (in seconds): ")    
+        self.hc_name = validate_input("Enter health check name: ")
+        self.ports = validate_ports_input('Enter ports range (e.g., ["80"]): ')
+        self.port = validate_integer_input("Enter port: ")
+        
+        self.tf_vars = {
+            'vpc_name': self.vpc_name,
+            'name': self.name,
+            'network': self.network,
+            'project_id': self.project_id,
+            'description': self.description,
+            'check_interval_sec': self.check_interval_sec,
+            'hc_name': self.hc_name,
+            'ports': self.ports,
+            'port': self.port    
+        }        
     def set_env_variable(self):
         os.environ ["TF_LOG"] = "ERROR"
 
@@ -29,24 +49,3 @@ class terraform_manager:
             raise Exception(f"Terraform apply failed: {stderr}")
 
     def terraform_variables(self, validate_input, validate_ports_input, validate_integer_input):
-        self.vpc_name = validate_input("Enter your VPC name: ")
-        self.name = validate_input("Enter the name: ")
-        self.network = validate_input("Enter the network name: ")    
-        self.project_id = validate_input("Enter your GCP project ID: ")
-        self.description = validate_input("Enter description: ")
-        self.check_interval_sec = validate_integer_input("Enter interval (in seconds): ")    
-        self.hc_name = validate_input("Enter health check name: ")
-        self.ports = validate_ports_input('Enter ports range (e.g., ["80"]): ')
-        self.port = validate_integer_input("Enter port: ")
-        
-        self.tf_vars = {
-            'vpc_name': self.vpc_name,
-            'name': self.name,
-            'network': self.network,
-            'project_id': self.project_id,
-            'description': self.description,
-            'check_interval_sec': self.check_interval_sec,
-            'hc_name': self.hc_name,
-            'ports': self.ports,
-            'port': self.port    
-        }
