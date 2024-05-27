@@ -4,9 +4,6 @@ def main():
     loadbalancer = terraform_manager()
     loadbalancer.set_env_variable()
 
-    # Gather inputs and set variables
-    loadbalancer.terraform_variables(validate_input, validate_ports_ranges, validate_integer)
-
     # Terraform fmt
     loadbalancer.terraform_fmt()
 
